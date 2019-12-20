@@ -1,0 +1,107 @@
+﻿<Page
+    x:Class="UI.Pages.Register"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UI.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style x:Key="StyleTextBox" TargetType="TextBox">
+            <Setter Property="Width" Value="200"></Setter>
+          <Setter Property="Margin" Value="10"></Setter>
+          <Setter Property="Height" Value="30"></Setter>
+        </Style>
+        <Style x:Key="StyleTextBlock" TargetType="TextBlock">
+          <Setter Property="Width" Value="175"></Setter>
+          <Setter Property="Margin" Value="10"></Setter>
+          <Setter Property="FontSize" Value="18"></Setter>
+        </Style>
+        <Style x:Key="StyleButton" TargetType="Button">
+
+        </Style>
+        <Style x:Key="StyleNavButton" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="6*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <NavigationView PaneDisplayMode="LeftMinimal" Grid.Row="0" Grid.Column="0" x:Name="NavView"
+    ItemInvoked="NavView_ItemInvoked"
+    Loaded="NavView_Loaded">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Register" Tag="register" x:Uid="registerNavItem"></NavigationViewItem>
+                <NavigationViewItem Content="Login" Tag="login" x:Uid="loginNavItem"></NavigationViewItem>
+                <NavigationViewItem Content="List" Tag="list" x:Uid="listNavItem"></NavigationViewItem>
+                <NavigationViewItem Content="Add song" Tag="addsong" x:Uid="addsongNavItem"></NavigationViewItem>
+            </NavigationView.MenuItems>
+        </NavigationView>
+      <ScrollViewer Grid.Row="0" Grid.Column="1">
+        <StackPanel Orientation="Vertical">
+          <TextBlock></TextBlock>
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource StyleTextBlock}" Text="Firstname"></TextBlock>
+                    <TextBox Style="{StaticResource StyleTextBox}" x:Name="Firstname"></TextBox>
+          </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource StyleTextBlock}" Text="Lastname"></TextBlock>
+                    <TextBox Style="{StaticResource StyleTextBox}" x:Name="Lastname"></TextBox>
+          </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource StyleTextBlock}" Text="Email"></TextBlock>
+                    <TextBox Style="{StaticResource StyleTextBox}" x:Name="Email"></TextBox>
+          </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource StyleTextBlock}" Text="Password"></TextBlock>
+                    <TextBox Style="{StaticResource StyleTextBox}" x:Name="Password"></TextBox>
+          </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource StyleTextBlock}" Text="Confirm Password"></TextBlock>
+                    <TextBox Style="{StaticResource StyleTextBox}" x:Name="ConfirmPassword"></TextBox>
+          </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource StyleTextBlock}" Text="Address"></TextBlock>
+                    <TextBox Style="{StaticResource StyleTextBox}" x:Name="Address"></TextBox>
+          </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource StyleTextBlock}" Text="Phone"></TextBlock>
+                    <TextBox InputScope="NameOrPhoneNumber" Style="{StaticResource StyleTextBox}" x:Name="Phone"></TextBox>
+          </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource StyleTextBlock}" Text="Avatar"></TextBlock>
+                    <TextBox Style="{StaticResource StyleTextBox}" x:Name="Avatar"></TextBox>
+          </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Style="{StaticResource StyleTextBlock}" Text="Gender"></TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource StyleTextBlock}" Text="Male"></TextBlock>
+                        <RadioButton GroupName="gender" Tag="Male" Checked="Gender_Choose"></RadioButton>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource StyleTextBlock}" Text="Female"></TextBlock>
+                        <RadioButton GroupName="gender" Tag="Female" Checked="Gender_Choose"></RadioButton>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource StyleTextBlock}" Text="Other"></TextBlock>
+                        <RadioButton GroupName="gender" IsChecked="true" Tag="Other" Checked="Gender_Choose"></RadioButton>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource StyleTextBlock}" Text="Birthday"></TextBlock>
+                    <DatePicker x:Name="Birthday"></DatePicker>
+          </StackPanel>
+          <Button HorizontalAlignment="Center" Margin="10" Content="Register" Click="Save_Click"></Button>
+        </StackPanel>
+      </ScrollViewer>
+    </Grid>
+</Page>
+    

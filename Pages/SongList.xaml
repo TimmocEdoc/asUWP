@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="UI.Pages.SongList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UI.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="6*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <NavigationView PaneDisplayMode="LeftMinimal" Grid.Row="0" Grid.Column="0" x:Name="NavView"
+    ItemInvoked="NavView_ItemInvoked"
+    Loaded="NavView_Loaded">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Register" Tag="register" x:Uid="registerNavItem"></NavigationViewItem>
+                <NavigationViewItem Content="Login" Tag="login" x:Uid="loginNavItem"></NavigationViewItem>
+                <NavigationViewItem Content="List" Tag="list" x:Uid="listNavItem"></NavigationViewItem>
+                <NavigationViewItem Content="Add song" Tag="addsong" x:Uid="addsongNavItem"></NavigationViewItem>
+            </NavigationView.MenuItems>
+        </NavigationView>
+        <ListView Grid.Column="1" Grid.Row="0" x:Name="songList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding ElementName='Name'}"></TextBlock>
+                        <TextBlock Text="{Binding ElementName='Author'}"></TextBlock>
+                        <TextBlock Text="{Binding ElementName='Singer'}"></TextBlock>
+                        <TextBlock Text="{Binding ElementName='Thumbnail'}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
